@@ -79,6 +79,30 @@ Evaluated on standard benchmarks with extended Chain-of-Thought thinking budgets
 
 ---
 
+## How to Run / Serve the Model
+
+To run the native 8-bit model (`nitinpanj/Qwen3.8-27B-Splash-HQ`) with the high-performance Metal Q8 engine:
+
+```bash
+# 1. Clone the Q8-enabled Splash fork
+git clone https://github.com/npanj/splash.git -b q8
+cd splash
+
+# 2. Build the Metal kernels
+make
+
+# 3. Serve the model (downloads automatically from Hugging Face on first launch)
+./splash serve --model nitinpanj/Qwen3.8-27B-Splash-HQ
+```
+
+The server binds to `http://127.0.0.1:8000` with an OpenAI-compatible API (`/v1/chat/completions`). Connect any coding agent or client:
+```bash
+# Oh My Pi (OMP)
+omp --model splash/incoai/Qwen3.8-27B-Splash-HQ
+```
+
+---
+
 ## Quickstart & Reproduction
 
 ### 1. Run the 5-Prompt Head-to-Head Comparison
