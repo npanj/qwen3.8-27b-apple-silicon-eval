@@ -1,10 +1,8 @@
-# Title: Qwen3.8-27B in native 8-bit at 37–55 tok/s on Apple Silicon: Custom Metal kernels, 190k context scaling, and the "Reasoning Cliff"
+Spent the last 24 hours building, packaging, and benchmarking Qwen3.8-27B in native 8-bit on Apple Silicon (M5 Pro, 64 GB unified memory).
 
-I've been running Qwen3.8-27B as my primary local driver on Apple Silicon (M5 Pro, 64 GB unified memory) over the past few weeks. 
+Standard autoregressive serving (stock MLX, llama.cpp Q8_0) caps out at around 9.9 tok/s on a 27B model because you're reading ~27 GB of weights on every single token. While 4-bit speculative decoding (Splash-Q4) is fast (~60 tok/s), aggressive 4-bit quants hit a nasty "reasoning cliff" on competition-grade math and multi-step derivations.
 
-Standard autoregressive serving (stock MLX, llama.cpp Q8_0) caps out at around 9.9 tok/s because you're reading ~27 GB of weights on every token. While 4-bit speculative decoding (Splash-Q4) is fast (~60 tok/s), aggressive 4-bit quants hit a nasty "reasoning cliff" on competition-grade math and multi-step derivations.
-
-We wanted true uncompressed 8-bit quality without giving up speculative decoding speed. Finally got the pipeline, custom Metal kernels, and evaluation suite cleaned up enough to share.
+We wanted true uncompressed 8-bit quality without giving up speculative decoding speed. Finally got the pipeline, custom Metal kernels, and evaluation suite working cleanly.
 
 * **Model weights (27 GB native 8-bit):** https://huggingface.co/nitinpanj/Qwen3.8-27B-Splash-HQ
 * **Q8 Metal runtime fork:** https://github.com/npanj/splash/tree/q8
@@ -31,7 +29,7 @@ Evaluated at `temperature=0.0` across 5 standardized task domains:
 
 **A few notes on the comparisons:**
 * **Splash-HQ vs MTPLX (+39% overall, +92% math):** Both run on the exact same 8-bit base weights. But Splash’s compiled C++ Metal backend executes with lower dispatch overhead than Python/MLX DraftCore, getting 36.9 vs 26.5 tok/s overall, and hitting **54.8 tok/s** on structured math reasoning.
-* **The Precision-Speed Paradox:** Uncompressed native 8-bit (Splash-HQ, 27 GB) actually ran slightly *faster* on average than compressed 8-bit (Splash-Q8, 17 GB)—36.9 vs 36.5 tok/s. In speculative decoding, decode speed is $\text{Draft Speed} \times \text{Acceptance Rate}$. Aggressive compression flattened logits and lowered draft acceptance; native 8-bit produced sharper logits, fewer verification rollbacks, and higher net throughput despite reading more bytes.
+* **The Precision-Speed Paradox:** Uncompressed native 8-bit (Splash-HQ, 27 GB) actually ran slightly *faster* on average than compressed 8-bit (Splash-Q8, 17 GB)—36.9 vs 36.5 tok/s. In speculative decoding, decode speed is $\text{Draft Speed} \times \text{Acceptance Rate}$. Aggressive compression flattened logits and lowered draft acceptance; native 8-bit produced sharper logits, fewer verification rollbacks, and higher net throughput despite reading more bytes from memory.
 
 ---
 
@@ -41,17 +39,17 @@ Most Transformers fall off a cliff in decode speed as context grows because the 
 
 Qwen3.8 uses a hybrid architecture: **48 recurrent linear DeltaNet layers** (fixed $128 \times 128$ hidden state, $O(1)$ memory growth with context) and only **16 full-attention layers**. 
 
-Here is raw telemetry sampled from my live server session over the last 24 hours as the conversation context grew from scratch to 190k tokens:
+Here is raw telemetry sampled from my live server session as the context grew from scratch all the way to 190k tokens:
 
 | Context Length (Tokens) | Cached Tokens | Generated Output | TTFT (Prompt Prefill) | **Decode Speed** | Notes |
 | :---: | :---: | :---: | :---: | :---: | :--- |
 | **65** | 0 | 50 | 0.8s | **35.7 tok/s** | Short prompt baseline |
 | **16,433** | 15,040 | 232 | 4.0s | **49.0 tok/s** | Prefix cache hit |
-| **34,605** | 29,376 | 2,771 | 15.6s | **27.1 tok/s** | Long agent response |
+| **34,605** | 29,376 | 2,771 | 15.6s | **27.1 tok/s** | Long response generation |
 | **83,379** | 76,320 | 435 | 28.9s | **30.1 tok/s** | Deep context code review |
 | **106,212** | 98,752 | 29,487 | 34.0s | **24.8 tok/s** | Massive batch generation |
 | **157,961** | 157,056 | 400 | 6.1s | **43.5 tok/s** | Cache hit at 158k tokens |
-| **180,082** | 143,360 | 3,446 | 228.5s | **33.3 tok/s** | Extended agent reasoning |
+| **180,082** | 143,360 | 3,446 | 228.5s | **33.3 tok/s** | Extended reasoning session |
 | **187,613** | 186,720 | 425 | 6.5s | **31.9 tok/s** | Cache hit at 187k tokens |
 | **188,546** | 147,456 | 1,083 | 268.2s | **21.1 tok/s** | Partial prefill recompute |
 | **190,016** | 151,552 | 1,115 | 227.4s | **32.0 tok/s** | Max context reached |
