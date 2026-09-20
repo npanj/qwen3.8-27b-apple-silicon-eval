@@ -1,0 +1,68 @@
+{
+  "model": "mlx-community/Qwen3.8-27B-8bit",
+  "avg_generation_speed_tps": 9.899825963521723,
+  "avg_prompt_speed_tps": 152.07281698447133,
+  "peak_memory_gb": 29.05670904,
+  "results": [
+    {
+      "id": "math_logic",
+      "category": "Math & Logic",
+      "prompt": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost? Show your step-by-step algebraic derivation, followed by the final answer.",
+      "prompt_tokens": 101,
+      "prompt_speed_tps": 33.320728091265714,
+      "generation_tokens": 250,
+      "generation_speed_tps": 9.88872918435319,
+      "total_time_s": 28.418438417022116,
+      "peak_memory_gb": 28.986482496,
+      "output": "We need answer user's classic bat and ball. Need provide step-by-step algebraic derivation and final answer. Need final concise but detailed enough. Let's craft: let ball = x, bat = x+1.00. Total x + (x+1)=1.10 => 2x+1=1.10 => 2x=0.10 => x=0.05. Ball 5 cents, bat $1.05. Check total 1.10, difference 1.00.\n</think>\n\nLet the cost of the ball be \\(x\\) dollars.\n\nSince the bat costs $1.00 more than the ball, the bat costs:\n\n\\[\nx + 1.00\n\\]\n\nTogether, the bat and ball cost $1.10:\n\n\\[\nx + (x + 1.00) = 1.10\n\\]\n\nCombine like terms:\n\n\\[\n2x + 1.00 = 1.10\n\\]\n\nSubtract $1.00 from both sides:\n\n\\[\n2x = 0.10\n\\]"
+    },
+    {
+      "id": "coding",
+      "category": "Coding & Algorithms",
+      "prompt": "Write a Python function `merge_intervals(intervals: list[list[int]]) -> list[list[int]]` that merges overlapping intervals. It must be clean, optimal in O(N log N) time, handle empty lists and negative coordinates, and include type annotations and docstring.",
+      "prompt_tokens": 106,
+      "prompt_speed_tps": 199.27011043445006,
+      "generation_tokens": 250,
+      "generation_speed_tps": 9.862184535057853,
+      "total_time_s": 25.989574791979976,
+      "peak_memory_gb": 28.998205804,
+      "output": "We need answer user: \"Write a Python function `merge_intervals(intervals: list[list[int]]) -> list[list[int]]` that merges overlapping intervals. It must be clean, optimal in O(N log N) time, handle empty lists and negative coordinates, and include type annotations and docstring.\"\n\nNeed produce final code likely with explanation maybe concise. Need ensure function correct. Consider intervals list of [start, end]. Merge overlapping: if next start <= current end (assuming inclusive intervals). Negative coordinates fine. Empty returns []. Need type annotations. Could sort by start. Edge cases: intervals may be unsorted, maybe invalid start > end? Not specified. Could assume valid start <= end. If want robust, maybe normalize? But optimal O(N log N). If normalize, still O(N). But type list[list[int]]. Need docstring.\n\nPotential implementation:\n\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\"Merge all overlapping intervals.\n\n    Args:\n        intervals: List of intervals, each represented as [start, end].\n            Coordinates may be negative. Intervals are assumed to have start <= end.\n\n    Returns:\n        A new list of non-overlapping"
+    },
+    {
+      "id": "spatial_constraint",
+      "category": "Constraint Reasoning",
+      "prompt": "Three friends (Alice, Bob, Charlie) are sitting in a row of 3 chairs numbered 1 to 3 from left to right. Constraints:\n1. Alice never sits next to Bob.\n2. Charlie is to the right of Alice (higher chair number).\nWho sits in chair 1, chair 2, and chair 3? Give a logical deduction step by step.",
+      "prompt_tokens": 133,
+      "prompt_speed_tps": 204.03945688400356,
+      "generation_tokens": 250,
+      "generation_speed_tps": 9.910852607872455,
+      "total_time_s": 25.99436849995982,
+      "peak_memory_gb": 29.05670904,
+      "output": "We need answer puzzle. Need solve. Three friends Alice Bob Charlie in chairs 1,2,3 left to right. Constraints: Alice never sits next to Bob. Charlie is to right of Alice (higher chair number). Need who sits in chair 1,2,3. Let's reason.\n\nPositions 1,2,3. Charlie right of Alice: possible (A,C) pairs: A1 C2, A1 C3, A2 C3. Alice not next to Bob: Bob cannot be adjacent to Alice.\nCase A1: adjacent chair 2 cannot be Bob. C must be 2 or3. If C2, then Bob3. A1 not next to B3? chairs 1 and3 not adjacent, ok. So A1 C2 B3 valid. If C3, then Bob2, but A1 adjacent B2 invalid. So only A1 C2 B3.\nCase A2: C3. Bob1. A2 adjacent B1 invalid. So no.\nCase A3 impossible C right.\nThus unique: chair1 Alice, chair2 Charlie, chair3 Bob.\nNeed final with step-by-step logical deduction. Ensure no hidden ambiguity"
+    },
+    {
+      "id": "technical_explanation",
+      "category": "Domain Knowledge",
+      "prompt": "Explain clearly the respective roles and architectural differences between FlashAttention, PagedAttention, and Speculative Decoding in high-performance LLM inference engines.",
+      "prompt_tokens": 82,
+      "prompt_speed_tps": 155.66472467333395,
+      "generation_tokens": 250,
+      "generation_speed_tps": 9.911019789633801,
+      "total_time_s": 25.877285333001055,
+      "peak_memory_gb": 28.94850684,
+      "output": "We need answer user: \"Explain clearly the respective roles and architectural differences between FlashAttention, PagedAttention, and Speculative Decoding in high-performance LLM inference engines.\"\n\nNeed produce clear explanation. Need think through content.\n\nWe need cover roles and architectural differences. High-performance LLM inference engines. Need distinguish:\n- FlashAttention: algorithm/kernel for attention computation, exact (or approximate? exact mathematically) attention, IO-aware, tiling, recomputation, avoids materializing full N x N attention matrix, reduces HBM traffic, improves speed/memory for attention. It's a layer-level optimization, can be used in training/inference, prefill and decode. It doesn't change model semantics. Architectural: GPU kernel, block-wise online softmax, works on tiles in SRAM, fused QKV? It's not a serving system. It can be combined with others.\n- PagedAttention: memory management/serving architecture for KV cache, inspired by OS virtual memory/paging. Splits KV cache into fixed-size blocks/pages, non-contiguous physical blocks, logical-to-physical mapping, copy-on-write for beam search, reduces fragmentation, enables sharing, batching, continuous batching. It's in inference engine"
+    },
+    {
+      "id": "executive_summary",
+      "category": "Nuanced Writing",
+      "prompt": "In exactly three clear, professional sentences, explain why memory bandwidth (rather than raw compute TFLOPS) is the dominant latency bottleneck during autoregressive token generation in transformer LLMs.",
+      "prompt_tokens": 89,
+      "prompt_speed_tps": 168.0690648393034,
+      "generation_tokens": 250,
+      "generation_speed_tps": 9.926343700691314,
+      "total_time_s": 25.825833833077922,
+      "peak_memory_gb": 28.963944784,
+      "output": "We need to answer user: \"In exactly three clear, professional sentences, explain why memory bandwidth (rather than raw compute TFLOPS) is the dominant latency bottleneck during autoregressive token generation in transformer LLMs.\"\n\nNeed exactly three sentences. Clear professional. Need likely mention each token generation requires loading model weights and KV cache from memory, compute per token small relative to memory traffic, arithmetic intensity low, so memory bandwidth limits latency. Need exactly three sentences. Ensure no extra. Count sentences.\n\nSentence 1: \"During autoregressive generation, each new token requires reading the model weights and the growing KV cache from memory, while the amount of arithmetic performed per token is relatively small.\"\nSentence 2: \"Because this workload has low arithmetic intensity, the GPU or accelerator spends most of its time waiting for data to move rather than executing floating-point operations.\"\nSentence 3: \"Consequently, memory bandwidth, not peak TFLOPS, determines the per-token latency and overall generation speed.\"\n\nCheck exactly three sentences. Yes. Professional. Could mention raw compute TFLOPS. Good. Final only three sentences.\n</think>\n\nDuring autoregressive generation, each new token requires reading the model weights and the growing KV cache from memory"
+    }
+  ]
+}

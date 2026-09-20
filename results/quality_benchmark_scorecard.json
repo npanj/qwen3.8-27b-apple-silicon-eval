@@ -1,0 +1,353 @@
+{
+  "gpqa_0": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "D",
+    "type": "choice",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": "D",
+        "correct": true,
+        "elapsed_s": 11.090610375045799,
+        "tok_s": 51.35187401673575,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer multiple choice. Need think step by step. Need determine highest density among exoplanets described.\n\nOptions:\na) Earth-mass and Earth-"
+      },
+      "splash-q8": {
+        "prediction": "D",
+        "correct": true,
+        "elapsed_s": 16.946343666990288,
+        "tok_s": 35.842724292618556,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think step by step. Need determine highest density among exoplanets described.\n\nOptions:\na) Earth-mass and Earth-radius plane"
+      },
+      "splash-mixed": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 14.575104791088961,
+        "tok_s": 32.539532663461564,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think step by step. Need determine highest density among exoplanets described.\n\nOptions:\na) Earth-mass and Earth-radius plane"
+      },
+      "splash-hq": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 19.256518583046272,
+        "tok_s": 34.222931277681674,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think step by step. Need conclude exact format. Let's analyze carefully.\n\nQuestion: Among following exoplanets, which one has"
+      }
+    }
+  },
+  "gpqa_1": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "C",
+    "type": "choice",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": "D",
+        "correct": false,
+        "elapsed_s": 6.791504584020004,
+        "tok_s": 63.60114540322317,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer multiple choice. Need think step by step. Need solve. Let's parse question carefully.\n\n\"Observations of structures located at a distanc"
+      },
+      "splash-q8": {
+        "prediction": "C",
+        "correct": true,
+        "elapsed_s": 13.258821416995488,
+        "tok_s": 31.44153183143083,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer multiple choice. Need think step by step. Need solve. Let's parse question carefully.\n\n\"Observations of structures located at a distanc"
+      },
+      "splash-mixed": {
+        "prediction": "C",
+        "correct": true,
+        "elapsed_s": 12.036439792020246,
+        "tok_s": 35.16873373778263,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think step by step. Need solve.\n\nQuestion: Observations of structures located at distance about 2.1 Gpc. Detected absorption"
+      },
+      "splash-hq": {
+        "prediction": "C",
+        "correct": true,
+        "elapsed_s": 11.68013912497554,
+        "tok_s": 36.32761321358825,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think step by step. Need solve.\n\nQuestion: Observations of structures at distance about 2.1 Gpc. Detected absorption line ene"
+      }
+    }
+  },
+  "gpqa_2": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "D",
+    "type": "choice",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 6.485950667061843,
+        "tok_s": 66.64685915229265,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer multiple choice. Need think carefully. Need solve. Let's parse problem.\n\nAstronomers studying system of three exoplanets with circular"
+      },
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 9.719205458066426,
+        "tok_s": 43.91717020551894,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer multiple choice. Need think carefully. Need solve. Let's parse problem.\n\nAstronomers studying system of three exoplanets with circular"
+      },
+      "splash-mixed": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 10.571440916974097,
+        "tok_s": 40.35605219816469,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think carefully. Need solve. Let's parse problem.\n\nAstronomers studying system of three exoplanets circular orbits discovered"
+      },
+      "splash-hq": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 9.217131666955538,
+        "tok_s": 46.87377317934649,
+        "completion_tokens": 400,
+        "text_snippet": "We need answer MCQ. Need think step by step. Need solve. Let's parse problem.\n\nAstronomers studying system of three exoplanets circular orbits discove"
+      }
+    }
+  },
+  "aime25_0": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "70",
+    "type": "integer",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": "70",
+        "correct": true,
+        "elapsed_s": 9.229691749904305,
+        "tok_s": 75.49280600669944,
+        "completion_tokens": 664,
+        "text_snippet": "In base \\(b\\),\n\n\\[\n17_b = b+7,\\qquad 97_b = 9b+7.\n\\]\n\nWe need\n\n\\[\nb+7 \\mid 9b+7.\n\\]\n\nSince\n\n\\[\n9b+7 = 9(b+7)-56,\n\\]\n\nthis is equivalent to\n\n\\[\nb+7 \\"
+      },
+      "splash-q8": {
+        "prediction": "70",
+        "correct": true,
+        "elapsed_s": 15.357903166092001,
+        "tok_s": 46.36756250035655,
+        "completion_tokens": 706,
+        "text_snippet": "We need \\(17_b \\mid 97_b\\).\n\nIn base \\(b\\),\n\n\\[\n17_b = b+7,\\qquad 97_b = 9b+7.\n\\]\n\nNow\n\n\\[\n9b+7 = 9(b+7)-56.\n\\]\n\nThus \\(b+7 \\mid 9b+7\\) if and only"
+      },
+      "splash-mixed": {
+        "prediction": "70",
+        "correct": true,
+        "elapsed_s": 17.547318291966803,
+        "tok_s": 45.53696531346182,
+        "completion_tokens": 775,
+        "text_snippet": "We need \\(17_b \\mid 97_b\\).\n\nIn base \\(b\\),\n\n\\[\n17_b = b+7,\\qquad 97_b = 9b+7.\n\\]\n\nNow\n\n\\[\n9b+7 = 9(b+7)-56.\n\\]\n\nThus \\(b+7\\) divides \\(9b+7\\) if an"
+      },
+      "splash-hq": {
+        "prediction": "70",
+        "correct": true,
+        "elapsed_s": 13.050730083021335,
+        "tok_s": 50.969772740346144,
+        "completion_tokens": 637,
+        "text_snippet": "In base \\(b\\),\n\n\\[\n17_b = b+7,\\qquad 97_b = 9b+7.\n\\]\n\nWe need \\(b+7 \\mid 9b+7\\). Let \\(d=b+7\\). Then \\(b=d-7\\), so\n\n\\[\n9b+7 = 9(d-7)+7 = 9d-56.\n\\]"
+      }
+    }
+  },
+  "aime25_1": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "588",
+    "type": "integer",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 23.18206545803696,
+        "tok_s": 66.42622124585515,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve geometry problem. Need think carefully. We need produce final concise derivation and boxed answer 0-999. Let's analyze.\n\nProblem: Triang"
+      },
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 36.32248308300041,
+        "tok_s": 42.115500221987894,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve geometry problem. Need think carefully. We need produce final concise derivation and boxed answer 0-999. Let's analyze.\n\nProblem: Triang"
+      },
+      "splash-mixed": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 38.43864583305549,
+        "tok_s": 39.73851260211241,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve geometry problem. Need think carefully. We need produce final answer boxed integer 0-999. Let's parse problem.\n\nTriangle ABC. Points A,D"
+      },
+      "splash-hq": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 33.45805549994111,
+        "tok_s": 45.83802971016611,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve geometry problem. Need think carefully. Need final concise derivation. Let's parse problem.\n\nTriangle ABC. Points A,D,E,B lie in that or"
+      }
+    }
+  },
+  "aime25_2": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "16",
+    "type": "integer",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": "16",
+        "correct": true,
+        "elapsed_s": 14.03879512497224,
+        "tok_s": 75.5046924617929,
+        "completion_tokens": 1027,
+        "text_snippet": "Let the numbers of players choosing chocolate, vanilla, and strawberry be \\(C,V,S\\), respectively.\n\nWe need positive integers satisfying\n\n\\[\nC+V+S=9"
+      },
+      "splash-q8": {
+        "prediction": "16",
+        "correct": true,
+        "elapsed_s": 22.94510904198978,
+        "tok_s": 46.38291119367697,
+        "completion_tokens": 1044,
+        "text_snippet": "Let the numbers of players choosing chocolate, vanilla, and strawberry be \\(C,V,S\\), respectively. Then\n\n\\[\nC+V+S=9,\\qquad C>V>S\\ge 1.\n\\]\n\nCheck pos"
+      },
+      "splash-mixed": {
+        "prediction": "292",
+        "correct": false,
+        "elapsed_s": 21.69602379098069,
+        "tok_s": 47.301055736836815,
+        "completion_tokens": 1006,
+        "text_snippet": "Let the numbers of players choosing chocolate, vanilla, and strawberry be \\(c,v,s\\), respectively. We need\n\n\\[\nc+v+s=9,\\qquad c>v>s\\ge 1.\n\\]\n\nThe po"
+      },
+      "splash-hq": {
+        "prediction": "16",
+        "correct": true,
+        "elapsed_s": 18.104665916995145,
+        "tok_s": 52.5242078079176,
+        "completion_tokens": 926,
+        "text_snippet": "Let the numbers of players choosing chocolate, vanilla, and strawberry be \\(C,V,S\\), respectively. We need\n\n\\[\nC+V+S=9,\\qquad C>V>S\\ge 1.\n\\]\n\nList t"
+      }
+    }
+  },
+  "math500_0": {
+    "benchmark": "MATH-500",
+    "ground_truth": "p - q",
+    "type": "math",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 23.424576499965042,
+        "tok_s": 65.4302548449421,
+        "completion_tokens": 1500,
+        "text_snippet": "Let\n\n\\[\nS=\\sum_{j=1}^\\infty \\sum_{k=1}^\\infty \\frac{1}{(j+k)^3}.\n\\]\n\nGroup the terms by the value of \\(n=j+k\\). Since \\(j,k\\ge 1\\), we have \\(n\\ge 2"
+      },
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 37.05657287500799,
+        "tok_s": 41.21586185127738,
+        "completion_tokens": 1500,
+        "text_snippet": "Let\n\n\\[\nS=\\sum_{j=1}^\\infty \\sum_{k=1}^\\infty \\frac{1}{(j+k)^3}.\n\\]\n\nGroup the terms by the value of \\(n=j+k\\). Since \\(j,k\\ge 1\\), we have \\(n\\ge 2"
+      },
+      "splash-mixed": {
+        "prediction": "p-q",
+        "correct": true,
+        "elapsed_s": 23.064881458994932,
+        "tok_s": 50.05963801339399,
+        "completion_tokens": 1126,
+        "text_snippet": "Let\n\n\\[\nS=\\sum_{j=1}^\\infty \\sum_{k=1}^\\infty \\frac{1}{(j+k)^3}.\n\\]\n\nSince all terms are positive, we may regroup by the value of \\(n=j+k\\). For a f"
+      },
+      "splash-hq": {
+        "prediction": "p-q",
+        "correct": true,
+        "elapsed_s": 21.110037709004246,
+        "tok_s": 50.55364074388311,
+        "completion_tokens": 1038,
+        "text_snippet": "Let\n\n\\[\nS=\\sum_{j=1}^\\infty \\sum_{k=1}^\\infty \\frac{1}{(j+k)^3}.\n\\]\n\nFor a fixed integer \\(n=j+k\\), the number of positive integer pairs \\((j,k)\\) w"
+      }
+    }
+  },
+  "math500_1": {
+    "benchmark": "MATH-500",
+    "ground_truth": "4",
+    "type": "math",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": "2",
+        "correct": false,
+        "elapsed_s": 34.913946375017986,
+        "tok_s": 43.495493642534925,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve math problem. Need think carefully. We need count distinct values obtainable from expression 2\u00b73\u00b74\u00b75+1 by inserting parentheses, no rear"
+      },
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 44.82703345804475,
+        "tok_s": 33.855150116638136,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve math problem. Need think carefully. We need count distinct values obtainable from expression 2\u00b73\u00b74\u00b75+1 by inserting parentheses, no rear"
+      },
+      "splash-mixed": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 43.452023957972415,
+        "tok_s": 34.94664655911995,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve math problem. Need think carefully. We need count distinct values obtainable from expression 2\u00b73\u00b74\u00b75+1 by inserting parentheses, no rear"
+      },
+      "splash-hq": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 41.519813791965134,
+        "tok_s": 36.62768106841426,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve problem. Need think step by step. Need final answer boxed. Let's analyze thoroughly.\n\nProblem: expression 2\u00b73\u00b74\u00b75+1. We can insert paren"
+      }
+    }
+  },
+  "math500_2": {
+    "benchmark": "MATH-500",
+    "ground_truth": "\\frac{3}{56}",
+    "type": "math",
+    "evaluations": {
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 22.76735583296977,
+        "tok_s": 67.109117632107,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve problem. Need think step by step. We need produce final with boxed answer. Let's analyze thoroughly.\n\nProblem: Let p(x) be polynomial de"
+      },
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 34.85529870796017,
+        "tok_s": 43.670058559302305,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve problem. Need think step by step. We need produce final with boxed answer. Let's analyze thoroughly.\n\nProblem: Let p(x) be polynomial de"
+      },
+      "splash-mixed": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 33.11844341701362,
+        "tok_s": 46.00589115116789,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve problem. Need think step by step. We need produce final with boxed answer.\n\nProblem: Let p(x) be polynomial degree 5 such that p(n)= n/("
+      },
+      "splash-hq": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 32.13270900002681,
+        "tok_s": 47.34856287920843,
+        "completion_tokens": 1500,
+        "text_snippet": "We need solve problem. Need think step by step. Need final with boxed answer.\n\nProblem: Let p(x) be polynomial degree 5 such that p(n)= n/(n^2-1) for"
+      }
+    }
+  }
+}

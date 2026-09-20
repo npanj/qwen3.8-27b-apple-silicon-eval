@@ -1,0 +1,622 @@
+{
+  "gpqa_0": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "D",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 16.464550375007093,
+        "tok_s": 36.10209709898468,
+        "completion_tokens": 400,
+        "text_snippet": "To determine which exoplanet has the highest density, we need to analyze the density of each option based on the physical properties of planets, speci"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 8.65281233296264,
+        "tok_s": 69.18236329776795,
+        "completion_tokens": 400,
+        "text_snippet": "To determine which exoplanet has the highest density, we need to calculate or estimate the density for each option. Density ($\\rho$) is defined as mas"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 20.995818957919255,
+        "tok_s": 26.24841006564299,
+        "completion_tokens": 400,
+        "text_snippet": "To determine which exoplanet has the highest density, let's analyze the density of each option. Density ($\\rho$) is defined as mass ($M$) divided by v"
+      }
+    }
+  },
+  "gpqa_1": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "C",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 13.695247375057079,
+        "tok_s": 30.212302310770987,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the correct answer, we need to identify the physical origin of the absorption line based on its energy and then match that origin to the"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 6.829578541917726,
+        "tok_s": 62.726613894169,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the correct answer, we need to identify the physical origin of the absorption line based on its energy and then match that origin to the"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 18.988109792000614,
+        "tok_s": 28.777131875856757,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the correct answer, we need to identify the physical source of the absorption line based on the given energy and then determine the state"
+      }
+    }
+  },
+  "gpqa_2": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "D",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 10.502699707983993,
+        "tok_s": 46.13183938352799,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the factor by which the orbital period of Planet3 is larger than that of Planet1, we need to relate the orbital period to the given physi"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 5.230799332959577,
+        "tok_s": 84.58749033016095,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the factor by which the orbital period of Planet3 is larger than that of Planet1, we need to relate the orbital period to the given physi"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 18.16795616701711,
+        "tok_s": 30.642946765959213,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the factor by which the orbital period of Planet3 is larger than that of Planet1, we need to relate the orbital periods to the given phys"
+      }
+    }
+  },
+  "gpqa_3": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "C",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 8.815502959070727,
+        "tok_s": 49.18985439175679,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the factor by which the ratio of the number of neutral atoms of Ti in two energetic levels changes, we need to apply the principles of st"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 5.756195208989084,
+        "tok_s": 76.99942662926956,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the factor by which the ratio of the number of neutral atoms of Ti in two energetic levels changes, we need to apply the principles of st"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 19.179292457993142,
+        "tok_s": 28.82346723144564,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the factor by which the ratio of the number of neutral atoms of Ti in two energetic levels changes, we need to apply the principles of st"
+      }
+    }
+  },
+  "gpqa_4": {
+    "benchmark": "GPQA Diamond",
+    "ground_truth": "C",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 9.511955374968238,
+        "tok_s": 45.42109585114209,
+        "completion_tokens": 400,
+        "text_snippet": "To find the ratio of the equilibrium temperatures between Planet1 and Planet2, we need to determine the semi-major axis (orbital distance) of each pla"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 6.433962624985725,
+        "tok_s": 68.6873479832466,
+        "completion_tokens": 400,
+        "text_snippet": "To find the ratio of the equilibrium temperatures between Planet1 and Planet2, we need to determine the semi-major axis (orbital distance) of each pla"
+      },
+      "mtplx-q8": {
+        "prediction": "C",
+        "correct": true,
+        "elapsed_s": 19.607166957925074,
+        "tok_s": 28.210579989874784,
+        "completion_tokens": 400,
+        "text_snippet": "To find the ratio of the equilibrium temperatures between Planet1 and Planet2, we need to determine the semi-major axes of their orbits. The equilibri"
+      }
+    }
+  },
+  "aime25_0": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "70",
+    "type": "integer",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 8.85954458406195,
+        "tok_s": 59.174814429225236,
+        "completion_tokens": 500,
+        "text_snippet": "To find the sum of all integer bases $b > 9$ for which $17_b$ is a divisor of $97_b$, we first express the numbers in base 10.\n\nThe number $17_b$ in b"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 5.9714141250588,
+        "tok_s": 88.56587546017803,
+        "completion_tokens": 500,
+        "text_snippet": "To find the sum of all integer bases $b > 9$ for which $17_b$ is a divisor of $97_b$, we first express the numbers in base 10.\n\nThe number $17_b$ in b"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 22.831730959005654,
+        "tok_s": 28.10398989563107,
+        "completion_tokens": 500,
+        "text_snippet": "To find the sum of all integer bases $b > 9$ for which $17_b$ is a divisor of $97_b$, we first express the numbers in base 10.\n\nThe number $17_b$ in b"
+      }
+    }
+  },
+  "aime25_1": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "588",
+    "type": "integer",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 10.081690291990526,
+        "tok_s": 52.713502542247944,
+        "completion_tokens": 500,
+        "text_snippet": "To find the area of the heptagon $AFNBCEM$, we will analyze the geometry of the triangle $\\triangle ABC$ and the positions of the points $D, E, F, G,"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 6.880975750042126,
+        "tok_s": 78.45860104806019,
+        "completion_tokens": 500,
+        "text_snippet": "To find the area of the heptagon $AFNBCEM$, we will analyze the geometry of the triangle $\\triangle ABC$ and the positions of the points $D, E, F, G,"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 22.474655249970965,
+        "tok_s": 28.968977715766208,
+        "completion_tokens": 500,
+        "text_snippet": "To find the area of the heptagon $AFNBCEM$, we will analyze the geometry of the triangle $\\triangle ABC$ and the points defined on its sides.\n\n**Step"
+      }
+    }
+  },
+  "aime25_2": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "16",
+    "type": "integer",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 10.462707208003849,
+        "tok_s": 49.65360554812433,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of different assignments of flavors to the 9 players, we need to determine the possible distributions of the number of players choo"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 6.680156041984446,
+        "tok_s": 78.57269819124691,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of different assignments of flavors to the 9 players, we need to determine the possible distributions of the number of players choo"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 22.179356375010684,
+        "tok_s": 29.170967802605578,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of different assignments of flavors to the 9 players, we need to determine the number of ways to distribute the 9 distinct players"
+      }
+    }
+  },
+  "aime25_3": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "117",
+    "type": "integer",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 9.789082041941583,
+        "tok_s": 52.62808842374596,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of ordered pairs $(x,y)$ of integers such that $-100 \\le x, y \\le 100$ and $12x^2 - xy - 6y^2 = 0$, we proceed as follows:\n\n**Step"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 6.975426958058961,
+        "tok_s": 74.15587776518903,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of ordered pairs $(x,y)$ of integers such that $-100 \\le x, y \\le 100$ and $12x^2 - xy - 6y^2 = 0$, we proceed as follows:\n\n**Step"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 23.468202583957464,
+        "tok_s": 27.32855814914559,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of ordered pairs $(x,y)$ of integers such that $-100 \\le x, y \\le 100$ and $12x^2 - xy - 6y^2 = 0$, we proceed as follows:\n\n**Step"
+      }
+    }
+  },
+  "aime25_4": {
+    "benchmark": "AIME 2025",
+    "ground_truth": "279",
+    "type": "integer",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 8.616722791921347,
+        "tok_s": 60.600588485472784,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number $N$ of eight-digit positive integers using the digits $\\{1, 2, 3, 4, 5, 6, 7, 8\\}$ exactly once that are divisible by 22, we must s"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 5.56203499995172,
+        "tok_s": 94.94173046999794,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number $N$ of eight-digit positive integers using the digits $\\{1, 2, 3, 4, 5, 6, 7, 8\\}$ exactly once that are divisible by 22, we must s"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 20.742664083954878,
+        "tok_s": 31.652174840013082,
+        "completion_tokens": 500,
+        "text_snippet": "To find the number of eight-digit positive integers formed by the digits $\\{1, 2, 3, 4, 5, 6, 7, 8\\}$ exactly once that are divisible by 22, we must s"
+      }
+    }
+  },
+  "gsm8k_0": {
+    "benchmark": "GSM8K",
+    "ground_truth": "18",
+    "type": "numeric",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "18",
+        "correct": true,
+        "elapsed_s": 4.888044000021182,
+        "tok_s": 52.72697601423716,
+        "completion_tokens": 249,
+        "text_snippet": "To determine how much money Janet makes every day at the farmers' market, we need to calculate the number of eggs she has available to sell and then m"
+      },
+      "splash-q4": {
+        "prediction": "18",
+        "correct": true,
+        "elapsed_s": 3.1436649579554796,
+        "tok_s": 82.51829468101394,
+        "completion_tokens": 249,
+        "text_snippet": "To determine how much money Janet makes every day at the farmers' market, we need to calculate the number of eggs she has available to sell and then m"
+      },
+      "mtplx-q8": {
+        "prediction": "18",
+        "correct": true,
+        "elapsed_s": 13.177355124964379,
+        "tok_s": 29.951121469495167,
+        "completion_tokens": 247,
+        "text_snippet": "To determine how much money Janet makes every day at the farmers' market, we need to calculate the number of eggs she has available to sell and then m"
+      }
+    }
+  },
+  "gsm8k_1": {
+    "benchmark": "GSM8K",
+    "ground_truth": "3",
+    "type": "numeric",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "3",
+        "correct": true,
+        "elapsed_s": 5.193310208967887,
+        "tok_s": 58.70907139023081,
+        "completion_tokens": 280,
+        "text_snippet": "To determine the total number of bolts of fiber required for the robe, we need to calculate the amount of white fiber and then add it to the amount of"
+      },
+      "splash-q4": {
+        "prediction": "3",
+        "correct": true,
+        "elapsed_s": 3.377207332989201,
+        "tok_s": 92.12991195012701,
+        "completion_tokens": 280,
+        "text_snippet": "To determine the total number of bolts of fiber required for the robe, we need to calculate the amount of white fiber and then add it to the amount of"
+      },
+      "mtplx-q8": {
+        "prediction": "3",
+        "correct": true,
+        "elapsed_s": 13.58157520799432,
+        "tok_s": 31.3476364647795,
+        "completion_tokens": 274,
+        "text_snippet": "To determine the total number of bolts of fiber required for the robe, we need to calculate the amount of white fiber and add it to the amount of blue"
+      }
+    }
+  },
+  "gsm8k_2": {
+    "benchmark": "GSM8K",
+    "ground_truth": "70000",
+    "type": "numeric",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 8.050103250076063,
+        "tok_s": 52.45899225355548,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the profit Josh made, we need to calculate his total cost, the final value of the house, and then subtract the total cost from the final"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 4.907142207957804,
+        "tok_s": 86.90720943584054,
+        "completion_tokens": 400,
+        "text_snippet": "To find the profit Josh made, we need to calculate the total cost of the house (including repairs) and the final selling price of the house, then subt"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 17.908961249981076,
+        "tok_s": 30.707332265814255,
+        "completion_tokens": 400,
+        "text_snippet": "To find the profit Josh made, we need to determine his total cost, the final value of the house, and then calculate the difference between the final v"
+      }
+    }
+  },
+  "gsm8k_3": {
+    "benchmark": "GSM8K",
+    "ground_truth": "540",
+    "type": "numeric",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "540",
+        "correct": true,
+        "elapsed_s": 4.095928499940783,
+        "tok_s": 53.842166154219115,
+        "completion_tokens": 206,
+        "text_snippet": "To find the total number of meters James runs in a week, we need to break down the problem into steps:\n\n1.  **Calculate the distance of one session:**"
+      },
+      "splash-q4": {
+        "prediction": "540",
+        "correct": true,
+        "elapsed_s": 2.702301249955781,
+        "tok_s": 82.88972750522746,
+        "completion_tokens": 206,
+        "text_snippet": "To find the total number of meters James runs in a week, we need to break down the problem into steps:\n\n1.  **Calculate the distance of one session:**"
+      },
+      "mtplx-q8": {
+        "prediction": "540",
+        "correct": true,
+        "elapsed_s": 11.461589917074889,
+        "tok_s": 31.071980249665685,
+        "completion_tokens": 203,
+        "text_snippet": "To find the total number of meters James runs in a week, we need to break down the problem into steps:\n\n1.  **Calculate the distance run in one sessio"
+      }
+    }
+  },
+  "gsm8k_4": {
+    "benchmark": "GSM8K",
+    "ground_truth": "20",
+    "type": "numeric",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "20",
+        "correct": true,
+        "elapsed_s": 6.863226208020933,
+        "tok_s": 48.45467829918978,
+        "completion_tokens": 306,
+        "text_snippet": "To determine how many cups of feed Wendi needs to give her chickens in the final meal, we need to calculate the total daily feed required for the enti"
+      },
+      "splash-q4": {
+        "prediction": "20",
+        "correct": true,
+        "elapsed_s": 4.527564959018491,
+        "tok_s": 74.90946796536029,
+        "completion_tokens": 306,
+        "text_snippet": "To determine how many cups of feed Wendi needs to give her chickens in the final meal, we need to calculate the total daily feed required for the enti"
+      },
+      "mtplx-q8": {
+        "prediction": "20",
+        "correct": true,
+        "elapsed_s": 15.006924791960046,
+        "tok_s": 30.368560569543405,
+        "completion_tokens": 303,
+        "text_snippet": "To find the number of cups of feed Wendi needs to give her chickens in the final meal, we need to determine the total daily feed required for the floc"
+      }
+    }
+  },
+  "mmlu_0": {
+    "benchmark": "MMLU",
+    "ground_truth": "B",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 7.540464750025421,
+        "tok_s": 53.98678645857147,
+        "completion_tokens": 400,
+        "text_snippet": "To find the degree of the field extension $\\mathbb{Q}(\\sqrt{2}, \\sqrt{3}, \\sqrt{18})$ over $\\mathbb{Q}$, we need to determine the dimension of this fi"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 4.99631583399605,
+        "tok_s": 82.0132066368769,
+        "completion_tokens": 400,
+        "text_snippet": "To find the degree of the field extension $\\mathbb{Q}(\\sqrt{2}, \\sqrt{3}, \\sqrt{18})$ over $\\mathbb{Q}$, we need to determine the dimension of this fi"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 18.136814499972388,
+        "tok_s": 30.107302802794155,
+        "completion_tokens": 400,
+        "text_snippet": "To find the degree of the field extension $\\mathbb{Q}(\\sqrt{2}, \\sqrt{3}, \\sqrt{18})$ over $\\mathbb{Q}$, we need to determine the dimension of this fi"
+      }
+    }
+  },
+  "mmlu_1": {
+    "benchmark": "MMLU",
+    "ground_truth": "C",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 7.530944959027693,
+        "tok_s": 56.473890956245235,
+        "completion_tokens": 400,
+        "text_snippet": "To find the index of the subgroup $\\langle p \\rangle$ in $S_5$, we need to determine the order of the permutation $p$ and then use the formula for the"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 5.034309833077714,
+        "tok_s": 85.7519716953034,
+        "completion_tokens": 400,
+        "text_snippet": "To find the index of the subgroup $\\langle p \\rangle$ in $S_5$, we need to determine the order of the permutation $p$ and then use the formula for the"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 17.802686874987558,
+        "tok_s": 30.58530037931628,
+        "completion_tokens": 400,
+        "text_snippet": "To find the index of the subgroup $\\langle p \\rangle$ in the symmetric group $S_5$, we need to follow these steps:\n\n1.  **Determine the order of the g"
+      }
+    }
+  },
+  "mmlu_2": {
+    "benchmark": "MMLU",
+    "ground_truth": "D",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 7.3875580000458285,
+        "tok_s": 56.43645535869183,
+        "completion_tokens": 400,
+        "text_snippet": "To find all zeros of the polynomial $f(x) = x^5 + 3x^3 + x^2 + 2x$ in the finite field $\\mathbb{Z}_5$ (integers modulo 5), we need to evaluate the pol"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 4.821534833055921,
+        "tok_s": 87.6328184905247,
+        "completion_tokens": 400,
+        "text_snippet": "To find all zeros of the polynomial $f(x) = x^5 + 3x^3 + x^2 + 2x$ in the finite field $\\mathbb{Z}_5$ (integers modulo 5), we need to evaluate the pol"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 18.286165457917377,
+        "tok_s": 29.984600375448252,
+        "completion_tokens": 400,
+        "text_snippet": "To find all zeros of the polynomial $f(x) = x^5 + 3x^3 + x^2 + 2x$ in the finite field $\\mathbb{Z}_5$, we need to evaluate the polynomial for each ele"
+      }
+    }
+  },
+  "mmlu_3": {
+    "benchmark": "MMLU",
+    "ground_truth": "B",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 8.217314124922268,
+        "tok_s": 51.825646515149536,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the correct answer, we must analyze the truth value of each statement independently.\n\n**Analysis of Statement 1:**\n\"A factor group of a n"
+      },
+      "splash-q4": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 5.685899749980308,
+        "tok_s": 75.45124405227536,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the correct answer, we must analyze the truth value of each statement independently.\n\n**Analysis of Statement 1:**\n\"A factor group of a n"
+      },
+      "mtplx-q8": {
+        "prediction": "A",
+        "correct": false,
+        "elapsed_s": 18.691323750070296,
+        "tok_s": 29.160394423480742,
+        "completion_tokens": 400,
+        "text_snippet": "To determine the correct answer, we need to analyze each statement individually.\n\n**Analysis of Statement 1:**\n\"A factor group of a non-Abelian group"
+      }
+    }
+  },
+  "mmlu_4": {
+    "benchmark": "MMLU",
+    "ground_truth": "B",
+    "type": "choice",
+    "evaluations": {
+      "splash-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 7.586341458023526,
+        "tok_s": 55.66268413414707,
+        "completion_tokens": 400,
+        "text_snippet": "To find the product of the polynomials $f(x) = 4x - 5$ and $g(x) = 2x^2 - 4x + 2$ in the ring $\\mathbb{Z}_8[x]$, we need to perform polynomial multipl"
+      },
+      "splash-q4": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 4.999939583009109,
+        "tok_s": 85.44979617389819,
+        "completion_tokens": 400,
+        "text_snippet": "To find the product of the polynomials $f(x) = 4x - 5$ and $g(x) = 2x^2 - 4x + 2$ in the ring $\\mathbb{Z}_8[x]$, we need to perform polynomial multipl"
+      },
+      "mtplx-q8": {
+        "prediction": null,
+        "correct": false,
+        "elapsed_s": 18.281818874995224,
+        "tok_s": 30.266607094242584,
+        "completion_tokens": 400,
+        "text_snippet": "To find the product of the polynomials $f(x) = 4x - 5$ and $g(x) = 2x^2 - 4x + 2$ in the ring $\\mathbb{Z}_8[x]$, we need to perform polynomial multipl"
+      }
+    }
+  }
+}

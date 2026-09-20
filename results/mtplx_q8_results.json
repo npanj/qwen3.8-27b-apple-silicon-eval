@@ -1,0 +1,91 @@
+{
+  "model": "Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality",
+  "avg_decode_tok_s": 26.452983217404455,
+  "results": [
+    {
+      "id": "math_logic",
+      "category": "Math & Logic",
+      "prompt": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost? Show your step-by-step algebraic derivation, followed by the final answer.",
+      "decode_tok_s": 28.53972297773045,
+      "prompt_eval_time_s": 0.3333529168739915,
+      "end_to_end_tok_s": 27.486829936370437,
+      "generated_tokens": 250,
+      "generation_mode": "mtp",
+      "accepted_by_depth": [
+        64,
+        60,
+        51
+      ],
+      "total_elapsed_s": 12.136655915994197,
+      "text": "The user is asking the classic \"bat and ball\" problem. Let me solve it carefully with algebra.\n\nLet me define variables:\n- Let b = cost of the ball\n- Let B = cost of the bat\n\nGiven:\n1. b + B = 1.10 (total cost)\n2. B = b + 1.00 (bat costs $1.00 more than the ball)\n\nSubstituting equation 2 into equation 1:\nb + (b + 1.00) = 1.10\n2b + 1.00 = 1.10\n2b = 0.10\nb = 0.05\n\nSo the ball costs $0.05 (5 cents).\n\nLet me verify: Ball = $0.05, Bat = $1.05. Total = $1.10. \u2713. Bat costs $1.00 more than ball: $1.05 - $0.05 = $1.00. \u2713.\n\nThe common wrong answer is $0.10, which would make the bat $1.10,"
+    },
+    {
+      "id": "coding",
+      "category": "Coding & Algorithms",
+      "prompt": "Write a Python function `merge_intervals(intervals: list[list[int]]) -> list[list[int]]` that merges overlapping intervals. It must be clean, optimal in O(N log N) time, handle empty lists and negative coordinates, and include type annotations and docstring.",
+      "decode_tok_s": 28.807591697251393,
+      "prompt_eval_time_s": 0.3401947501115501,
+      "end_to_end_tok_s": 27.713216376208194,
+      "generated_tokens": 250,
+      "generation_mode": "mtp",
+      "accepted_by_depth": [
+        66,
+        56,
+        44
+      ],
+      "total_elapsed_s": 12.112239999929443,
+      "text": "The user wants a Python function that merges overlapping intervals. Let me think through the requirements:\n\n1. Function signature: `merge_intervals(intervals: list[list[int]]) -> list[list[int]]`\n2. Merges overlapping intervals\n3. Clean code\n4. O(N log N) time complexity\n5. Handle empty lists\n6. Handle negative coordinates\n7. Type annotations\n8. Docstring\n\nThe algorithm:\n1. Sort intervals by start time - O(N log N)\n2. Iterate through sorted intervals, merging overlapping ones - O(N)\n3. Two intervals [a, b] and [c, d] overlap if c <= b (the start of the next is <= the end of the current)\n\nEdge cases:\n- Empty list \u2192 return empty list\n- Single interval \u2192 return as-is\n- Negative coordinates \u2192 sorting handles this naturally\n- Adjacent intervals like [1,2] and [2,3] \u2192 should merge to [1,3] (since 2 <= 2)\n\nLet me write clean, well-documented code:\n\n```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    \"\"\""
+    },
+    {
+      "id": "spatial_constraint",
+      "category": "Constraint Reasoning",
+      "prompt": "Three friends (Alice, Bob, Charlie) are sitting in a row of 3 chairs numbered 1 to 3 from left to right. Constraints:\n1. Alice never sits next to Bob.\n2. Charlie is to the right of Alice (higher chair number).\nWho sits in chair 1, chair 2, and chair 3? Give a logical deduction step by step.",
+      "decode_tok_s": 27.737640130271974,
+      "prompt_eval_time_s": 0.45979225006885827,
+      "end_to_end_tok_s": 26.384351875592593,
+      "generated_tokens": 250,
+      "generation_mode": "mtp",
+      "accepted_by_depth": [
+        65,
+        57,
+        48
+      ],
+      "total_elapsed_s": 12.542391292052343,
+      "text": "Let me work through this step by step.\n\nWe have 3 chairs: 1, 2, 3 (left to right)\nThree friends: Alice (A), Bob (B), Charlie (C)\n\nConstraints:\n1. Alice never sits next to Bob. (They cannot be in adjacent chairs)\n2. Charlie is to the right of Alice (Charlie's chair number > Alice's chair number)\n\nLet me enumerate all possible arrangements and apply constraints.\n\nAll 6 permutations of (A, B, C) in chairs (1, 2, 3):\n\n1. A, B, C \u2192 Alice in 1, Bob in 2, Charlie in 3\n   - Constraint 1: Alice (1) and Bob (2) are adjacent \u2192 VIOLATED\n\n2. A, C, B \u2192 Alice in 1, Charlie in 2, Bob in 3\n   - Constraint 1: Alice (1) and Bob (3) are NOT adjacent \u2192 OK\n   - Constraint 2: Charlie (2) > Alice (1) \u2192 OK\n   - VALID\n\n3. B, A, C \u2192 Bob in 1, Alice in "
+    },
+    {
+      "id": "technical_explanation",
+      "category": "Domain Knowledge",
+      "prompt": "Explain clearly the respective roles and architectural differences between FlashAttention, PagedAttention, and Speculative Decoding in high-performance LLM inference engines.",
+      "decode_tok_s": 23.783107101808653,
+      "prompt_eval_time_s": 0.3138092078734189,
+      "end_to_end_tok_s": 23.08826314315618,
+      "generated_tokens": 250,
+      "generation_mode": "mtp",
+      "accepted_by_depth": [
+        73,
+        49,
+        37
+      ],
+      "total_elapsed_s": 14.015209041070193,
+      "text": "The user is asking for a clear explanation of three distinct techniques used in high-performance LLM inference: FlashAttention, PagedAttention, and Speculative Decoding. They want to understand the respective roles and architectural differences. Let me organize my thoughts carefully.\n\nThese three techniques operate at fundamentally different levels of the inference stack:\n\n1. **FlashAttention** - This is an *algorithmic* optimization of the attention computation itself. It's about how you compute the attention matrix (Q\u00b7K^T\u00b7V) more efficiently by exploiting GPU memory hierarchy (SRAM vs HBM). It's a drop-in replacement for the standard attention kernel. It doesn't change the model architecture or the inference pipeline structure. It's about *how* a single attention operation is computed.\n\n2. **PagedAttention** - This is a *memory management* technique for the KV cache. It's about how you store and manage the key-value cache across multiple concurrent sequences (batches). It borrows the idea of virtual memory / paging from OS. It's about *where* and *how* the KV cache is stored in GPU memory, enabling efficient batching and reducing memory fragmentation. It's a system-level / memory-level optimization.\n\n"
+    },
+    {
+      "id": "executive_summary",
+      "category": "Nuanced Writing",
+      "prompt": "In exactly three clear, professional sentences, explain why memory bandwidth (rather than raw compute TFLOPS) is the dominant latency bottleneck during autoregressive token generation in transformer LLMs.",
+      "decode_tok_s": 23.396854179959806,
+      "prompt_eval_time_s": 0.31761037500109524,
+      "end_to_end_tok_s": 22.716383919927463,
+      "generated_tokens": 250,
+      "generation_mode": "mtp",
+      "accepted_by_depth": [
+        67,
+        49,
+        34
+      ],
+      "total_elapsed_s": 14.011399290990084,
+      "text": "The user wants exactly three clear, professional sentences explaining why memory bandwidth (not raw compute TFLOPS) is the dominant latency bottleneck during autoregressive token generation in transformer LLMs.\n\nLet me think about the core technical reasons:\n\n1. During autoregressive generation, each new token requires loading the entire model's weights (all layers, all parameters) from HBM/DRAM into the compute units, but the actual computation per token is minimal (a single vector-matrix multiply per layer, where the \"matrix\" is the weight matrix and the \"vector\" is a single token's hidden state). The arithmetic intensity (FLOPs per byte accessed) is extremely low\u2014essentially 1 FLOP per byte for a single token's forward pass through a linear layer. This means the GPU/TPU is spending most of its time waiting for data to arrive from memory rather than performing arithmetic.\n\n2. The compute units (tensor cores, etc.) are massively underutilized because the batch size per token is 1 (or very small), so the matrix multiplications are effectively GEMV (general matrix-vector) operations rather than GEMM (general matrix-matrix) operations. GEMV is memory-bound,"
+    }
+  ]
+}

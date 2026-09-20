@@ -1,0 +1,37 @@
+[
+  {
+    "id": "math_logic",
+    "category": "Math & Logic",
+    "prompt_tok_per_sec": 144.9,
+    "gen_tok_per_sec": 9.8,
+    "elapsed": 29.224793917
+  },
+  {
+    "id": "coding",
+    "category": "Coding & Algorithms",
+    "prompt_tok_per_sec": 153.5,
+    "gen_tok_per_sec": 9.9,
+    "elapsed": 28.670287458000004
+  },
+  {
+    "id": "spatial_constraint",
+    "category": "Constraint Reasoning",
+    "prompt_tok_per_sec": 172.5,
+    "gen_tok_per_sec": 9.9,
+    "elapsed": 28.873727042
+  },
+  {
+    "id": "technical_explanation",
+    "category": "Domain Knowledge",
+    "prompt_tok_per_sec": 121.2,
+    "gen_tok_per_sec": 10.0,
+    "elapsed": 28.548257166
+  },
+  {
+    "id": "executive_summary",
+    "category": "Nuanced Writing",
+    "prompt_tok_per_sec": 131.8,
+    "gen_tok_per_sec": 10.0,
+    "elapsed": 28.496581458999998
+  }
+]
