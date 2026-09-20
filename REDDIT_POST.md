@@ -75,25 +75,33 @@ Throughput numbers don't matter if math derivations hallucinate. We tested exten
 
 ---
 
-### Setup Recipe (3 Steps)
+### Setup Recipe (How to Run & Download the Model)
 
-#### 1. Clone the Q8 runtime fork
+The GitHub repo holds the C++ and Metal runtime engine, while the 27 GB model weights are hosted on Hugging Face. **You don't need to manually download model files with git-lfs or separate scripts**—Splash has a built-in package downloader.
+
+#### 1. Clone the Q8 runtime engine and build the Metal shaders
 ```bash
 git clone https://github.com/npanj/splash.git -b q8
 cd splash
 make -j4
 ```
 
-#### 2. Start the server
+#### 2. Launch the server (Automatic Download on First Run)
+When you run the command below, Splash automatically detects missing model artifacts, connects to Hugging Face, streams the 27 GB files with progress bars, verifies the manifest SHA-256 hashes, and boots the engine:
 ```bash
-./splash serve --model nitinpanj/Qwen3.8-27B-Splash-HQ --port 8000
+./splash serve --model nitinpanj/Qwen3.8-27B-Splash-HQ
 ```
-*(On first run, it automatically downloads and verifies the 27 GB model artifacts into `install/models/nitinpanj/Qwen3.8-27B-Splash-HQ`).*
+*(Once downloaded, subsequent runs load instantly from local disk offline).*
+
+*(Optional: If you prefer to pre-download the model files beforehand via Hugging Face CLI instead, you can run:)*
+```bash
+huggingface-cli download nitinpanj/Qwen3.8-27B-Splash-HQ --local-dir install/models/nitinpanj/Qwen3.8-27B-Splash-HQ
+```
 
 #### 3. Connect your client
-The server exposes a standard OpenAI-compatible `/v1/chat/completions` endpoint:
+The server exposes a standard OpenAI-compatible `/v1/chat/completions` endpoint on `http://127.0.0.1:8000`:
 ```bash
-# Test with curl
+# Test via curl
 curl http://127.0.0.1:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
