@@ -1,15 +1,17 @@
-Spent the last 24 hours building, packaging, and benchmarking Qwen3.8-27B in native 8-bit on Apple Silicon (M5 Pro, 64 GB unified memory).
+# Title: [Splash Engine] Qwen3.8-27B in native 8-bit at 37–55 tok/s on Apple Silicon: Extending Splash to Q8, 190k context scaling, and the "Reasoning Cliff"
 
-Standard autoregressive serving (stock MLX, llama.cpp Q8_0) caps out at around 9.9 tok/s on a 27B model because you're reading ~27 GB of weights on every single token. While 4-bit speculative decoding (Splash-Q4) is fast (~60 tok/s), aggressive 4-bit quants hit a nasty "reasoning cliff" on competition-grade math and multi-step derivations.
+Spent the last 24 hours benchmarking the incredible **Splash engine** (by Incoai) and extending its architecture to native 8-bit on Apple Silicon (M5 Pro, 64 GB unified memory).
 
-We wanted true uncompressed 8-bit quality without giving up speculative decoding speed. Finally got the pipeline, custom Metal kernels, and evaluation suite working cleanly.
+Splash is a compiled C++ and Metal speculative decoding engine designed specifically for Apple Silicon. Upstream Splash pioneered a blisteringly fast speculative decoding pipeline for 4-bit models (~60 tok/s). However, aggressive 4-bit quantization hits a nasty "reasoning cliff" on competition-grade math and multi-step derivations.
+
+We wanted to bring Splash's speed to true uncompressed 8-bit weights without losing its speculative decoding advantages. By extending Splash's architecture to support native 8-bit tiled Metal kernels (schema 5, `MDFL0008`), we were able to sustain 37–55 tok/s with zero quantization degradation.
 
 * **Model weights (27 GB native 8-bit):** https://huggingface.co/nitinpanj/Qwen3.8-27B-Splash-HQ
-* **Q8 Metal runtime fork:** https://github.com/npanj/splash/tree/q8
+* **Q8 Metal runtime fork (Splash extension):** https://github.com/npanj/splash/tree/q8
 * **Benchmark suite & raw JSON logs:** https://github.com/npanj/qwen3.8-27b-apple-silicon-eval
 * **Benchmark & Context Scaling Plot:** https://raw.githubusercontent.com/npanj/qwen3.8-27b-apple-silicon-eval/main/benchmark_and_context_scaling.png
 
-This won't run on upstream Splash 1.0 (`incoai/splash`). Upstream hardcodes package validation to only accept 4-bit schemas (`splash-packed-q4`, schema 3/4) and rejects 8-bit packages. The fork adds schema 5 (`splash-packed-q8`, `MDFL0008`) loading, custom Metal tiled Q8 decode kernels, and maintains 100% backwards compatibility with stock Q4 models.
+*Note on compatibility:* Official upstream Splash 1.0 (`incoai/splash`) hardcodes package validation to 4-bit schemas (`splash-packed-q4`, schema 3/4). This fork adds schema 5 (`splash-packed-q8`, `MDFL0008`) loading and compiled Metal Q8 tiled decode kernels, while keeping 100% backwards compatibility with upstream Splash's official Q4 models.
 
 ---
 
@@ -17,7 +19,7 @@ This won't run on upstream Splash 1.0 (`incoai/splash`). Upstream hardcodes pack
 
 Evaluated at `temperature=0.0` across 5 standardized task domains:
 
-| Task / Domain | Prompt Description | Splash-Q4 (4b MTP) | Splash-HQ (Native 8b) | Splash-Q8 (Compressed) | MTPLX-Q8 (MTP D3) | Stock MLX / llama.cpp (AR) |
+| Task / Domain | Prompt Description | Splash-Q4 (Official 4b) | Splash-HQ (Native 8b) | Splash-Q8 (Compressed) | MTPLX-Q8 (MTP D3) | Stock MLX / llama.cpp (AR) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Math & Logic** | Algebraic derivation | **83.3 t/s** | **54.8 t/s** | 52.7 t/s | 28.5 t/s | 9.9 t/s |
 | **Coding & Algos** | `merge_intervals` $O(N \log N)$ | **75.5 t/s** | **34.7 t/s** | 40.3 t/s | 28.8 t/s | 9.9 t/s |
@@ -28,7 +30,7 @@ Evaluated at `temperature=0.0` across 5 standardized task domains:
 | **Speedup vs AR** | Relative to 9.9 t/s baseline | **6.13x** | **3.73x** | **3.69x** | **2.68x** | **1.00x** |
 
 **A few notes on the comparisons:**
-* **Splash-HQ vs MTPLX (+39% overall, +92% math):** Both run on the exact same 8-bit base weights. But Splash’s compiled C++ Metal backend executes with lower dispatch overhead than Python/MLX DraftCore, getting 36.9 vs 26.5 tok/s overall, and hitting **54.8 tok/s** on structured math reasoning.
+* **Splash-HQ vs MTPLX (+39% overall, +92% math):** Both run on the exact same 8-bit base weights. But Splash’s compiled C++ Metal backend executes with significantly lower dispatch overhead than Python/MLX DraftCore, getting 36.9 vs 26.5 tok/s overall, and hitting **54.8 tok/s** on structured math reasoning.
 * **The Precision-Speed Paradox:** Uncompressed native 8-bit (Splash-HQ, 27 GB) actually ran slightly *faster* on average than compressed 8-bit (Splash-Q8, 17 GB)—36.9 vs 36.5 tok/s. In speculative decoding, decode speed is $\text{Draft Speed} \times \text{Acceptance Rate}$. Aggressive compression flattened logits and lowered draft acceptance; native 8-bit produced sharper logits, fewer verification rollbacks, and higher net throughput despite reading more bytes from memory.
 
 ---
@@ -39,7 +41,7 @@ Most Transformers fall off a cliff in decode speed as context grows because the 
 
 Qwen3.8 uses a hybrid architecture: **48 recurrent linear DeltaNet layers** (fixed $128 \times 128$ hidden state, $O(1)$ memory growth with context) and only **16 full-attention layers**. 
 
-Here is raw telemetry sampled from my live server session as the context grew from scratch all the way to 190k tokens:
+Here is raw telemetry sampled from my live Splash server session as the context grew from scratch all the way to 190k tokens:
 
 | Context Length (Tokens) | Cached Tokens | Generated Output | TTFT (Prompt Prefill) | **Decode Speed** | Notes |
 | :---: | :---: | :---: | :---: | :---: | :--- |
@@ -57,7 +59,7 @@ Here is raw telemetry sampled from my live server session as the context grew fr
 *(See the visual plot in the repo: [benchmark_and_context_scaling.png](https://raw.githubusercontent.com/npanj/qwen3.8-27b-apple-silicon-eval/main/benchmark_and_context_scaling.png) showing the full 51-point scatter and rolling trend line).*
 
 **The big takeaway on context:**
-Decode speed **does not collapse**. It stays between **21 – 33 tok/s** all the way out to 190k tokens. 
+Decode speed **does not collapse**. Thanks to Splash's memory handling and the hybrid architecture, it stays between **21 – 33 tok/s** all the way out to 190k tokens. 
 
 The actual bottleneck at 150k+ context is **cold prefill (TTFT)**. When the prefix cache hits, TTFT at 187k context is just **6.5 seconds**. But on a cold cache miss, prefilling 180k+ tokens on a 27B model on Apple Silicon takes ~4–5 minutes. If you are using agent harnesses (like Oh My Pi, Claude Code, or curl), make sure client SSE idle timeouts are set high enough so the client doesn't drop the connection during cold prefills.
 
@@ -108,7 +110,10 @@ omp --model splash/incoai/Qwen3.8-27B-Splash-HQ
 
 ### Practical Gotchas & Details
 1. **Memory headroom at 150k+ context:** On a 64 GB Mac, model weights take ~27 GB. As context pushes towards 180k–190k, working memory climbs to ~42 GiB. Metal's memory governor will pause allocation growth when system free RAM dips below ~50 MB (`Memory: growth paused`). If you don't need 190k context, you can pass `--max-context 131072` to cap it cleanly.
-2. **Backwards compatibility:** You don't need two binaries. This fork preserves all upstream 4-bit dense and MoE schemas (`splash-packed-q4`, `splash-packed-q4-moe`), so you can serve official models like `incoai/Qwen3.8-27B-Splash` or `incoai/Qwen3.6-35B-A3B-Splash` directly.
+2. **Backwards compatibility:** You don't need two binaries. This fork preserves all upstream Splash 4-bit dense and MoE schemas (`splash-packed-q4`, `splash-packed-q4-moe`), so you can serve official models like `incoai/Qwen3.8-27B-Splash` or `incoai/Qwen3.6-35B-A3B-Splash` directly.
 3. **Only tested on Apple Silicon (Unified Memory):** Everything here relies on unified memory bandwidth and Metal tiled shaders; not tested on CUDA or CPU.
 
-Credit where it's due: Incoai for the Splash engine and speculative decoding architecture, the Qwen team for base weights and MTP, and Youssofal for MTPLX references.
+---
+
+### Credits & Attribution
+Full credit to the **Incoai team** for creating Splash (https://github.com/incoai/splash). Their C++ Metal speculative decoding architecture is what makes these speeds possible on Apple Silicon in the first place—this fork simply extends their work to support native 8-bit weights and custom Q8 tiled kernels. Also huge credit to the **Qwen team** for base weights and MTP architecture, and **Youssofal** for MTPLX reference benchmarks.
