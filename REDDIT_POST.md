@@ -1,5 +1,3 @@
-# Title: [Splash Engine] Qwen3.8-27B in native 8-bit at 37–55 tok/s on Apple Silicon: Extending Splash to Q8, 190k context scaling, and the "Reasoning Cliff"
-
 Spent the last 24 hours benchmarking the incredible **Splash engine** (by Incoai) and extending its architecture to native 8-bit on Apple Silicon (M5 Pro, 64 GB unified memory).
 
 Splash is a compiled C++ and Metal speculative decoding engine designed specifically for Apple Silicon. Upstream Splash pioneered a blisteringly fast speculative decoding pipeline for 4-bit models (~60 tok/s). However, aggressive 4-bit quantization hits a nasty "reasoning cliff" on competition-grade math and multi-step derivations.
@@ -105,13 +103,13 @@ The server exposes a standard OpenAI-compatible `/v1/chat/completions` endpoint 
 curl http://127.0.0.1:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "incoai/Qwen3.8-27B-Splash-HQ",
+    "model": "nitinpanj/Qwen3.8-27B-Splash-HQ",
     "messages": [{"role": "user", "content": "Explain why uncompressed 8-bit weights improve speculative decoding acceptance."}],
     "temperature": 0.0
   }'
 
 # Or connect Oh My Pi (OMP)
-omp --model splash/incoai/Qwen3.8-27B-Splash-HQ
+omp --model splash/nitinpanj/Qwen3.8-27B-Splash-HQ
 ```
 
 ---
