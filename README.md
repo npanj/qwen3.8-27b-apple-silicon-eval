@@ -89,7 +89,7 @@ git clone https://github.com/npanj/splash.git -b q8
 cd splash
 
 # 2. Build the Metal kernels
-make
+make -j4
 
 # 3. Serve the model (downloads automatically from Hugging Face on first launch)
 ./splash serve --model nitinpanj/Qwen3.8-27B-Splash-HQ
@@ -98,7 +98,7 @@ make
 The server binds to `http://127.0.0.1:8000` with an OpenAI-compatible API (`/v1/chat/completions`). Connect any coding agent or client:
 ```bash
 # Oh My Pi (OMP)
-omp --model splash/incoai/Qwen3.8-27B-Splash-HQ
+omp --model splash/nitinpanj/Qwen3.8-27B-Splash-HQ
 ```
 
 ---
