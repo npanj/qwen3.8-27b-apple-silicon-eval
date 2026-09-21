@@ -8,8 +8,8 @@ We wanted to bring Splash's speed to true uncompressed 8-bit weights without los
 
 * **Model weights (27 GB native 8-bit):** https://huggingface.co/nitinpanj/Qwen3.8-27B-Splash-HQ
 * **Q8 Metal runtime fork (Splash extension):** https://github.com/npanj/splash/tree/q8
-* **Benchmark suite & raw JSON logs:** https://github.com/npanj/qwen3.8-27b-apple-silicon-eval
-* **Benchmark & Context Scaling Plot:** https://raw.githubusercontent.com/npanj/qwen3.8-27b-apple-silicon-eval/main/benchmark_and_context_scaling.png
+* **Benchmark suite & raw JSON logs:** https://github.com/npanj/splash-plus
+* **Benchmark & Context Scaling Plot:** https://raw.githubusercontent.com/npanj/splash-plus/main/benchmark_and_context_scaling.png
 
 *Note on compatibility:* Official upstream Splash 1.0 (`incoai/splash`) hardcodes package validation to 4-bit schemas (`splash-packed-q4`, schema 3/4). This fork adds schema 5 (`splash-packed-q8`, `MDFL0008`) loading and compiled Metal Q8 tiled decode kernels, while keeping 100% backwards compatibility with upstream Splash's official Q4 models.
 
@@ -56,7 +56,7 @@ Here is raw telemetry sampled from my live Splash server session as the context 
 | **188,546** | 147,456 | 1,083 | 268.2s | **21.1 tok/s** | Partial prefill recompute |
 | **190,016** | 151,552 | 1,115 | 227.4s | **32.0 tok/s** | Max context reached |
 
-*(See the visual plot in the repo: [benchmark_and_context_scaling.png](https://raw.githubusercontent.com/npanj/qwen3.8-27b-apple-silicon-eval/main/benchmark_and_context_scaling.png) showing the full 51-point scatter and rolling trend line).*
+*(See the visual plot in the repo: [benchmark_and_context_scaling.png](https://raw.githubusercontent.com/npanj/splash-plus/main/benchmark_and_context_scaling.png) showing the full 51-point scatter and rolling trend line).*
 
 **The big takeaway on context:**
 Decode speed **does not collapse**. Thanks to Splash's memory handling and the hybrid architecture, it stays between **21 – 33 tok/s** all the way out to 190k tokens. 
