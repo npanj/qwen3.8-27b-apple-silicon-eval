@@ -33,13 +33,13 @@ Evaluated at `temperature=0.0` across 5 standardized task domains:
 
 ---
 
-### Context Scaling: What Happens from 0 to 190,000 Tokens
+### Context Scaling: What Happens Up to 256k Context (Live Telemetry to 190k)
 
-Most Transformers fall off a cliff in decode speed as context grows because the KV cache balloons. 
+Qwen3.8 is architecturally specified with a native **256k context window** (262,144 tokens). Most Transformers fall off a cliff in decode speed as context grows because the KV cache balloons. 
 
-Qwen3.8 uses a hybrid architecture: **48 recurrent linear DeltaNet layers** (fixed $128 \times 128$ hidden state, $O(1)$ memory growth with context) and only **16 full-attention layers**. 
+However, Qwen3.8 uses a hybrid architecture: **48 recurrent linear DeltaNet layers** (fixed $128 \times 128$ hidden state, $O(1)$ memory growth with context) and only **16 full-attention layers**. 
 
-Here is raw telemetry sampled from my live Splash server session as the context grew from scratch all the way to 190k tokens:
+On a 64 GB Mac, we pushed it live in an active server session all the way out to **190,016 tokens** to see if decode speed degraded under real usage:
 
 | Context Length (Tokens) | Cached Tokens | Generated Output | TTFT (Prompt Prefill) | **Decode Speed** | Notes |
 | :---: | :---: | :---: | :---: | :---: | :--- |
@@ -52,12 +52,12 @@ Here is raw telemetry sampled from my live Splash server session as the context 
 | **180,082** | 143,360 | 3,446 | 228.5s | **33.3 tok/s** | Extended reasoning session |
 | **187,613** | 186,720 | 425 | 6.5s | **31.9 tok/s** | Cache hit at 187k tokens |
 | **188,546** | 147,456 | 1,083 | 268.2s | **21.1 tok/s** | Partial prefill recompute |
-| **190,016** | 151,552 | 1,115 | 227.4s | **32.0 tok/s** | Max context reached |
+| **190,016** | 151,552 | 1,115 | 227.4s | **32.0 tok/s** | Max context reached (64GB RAM) |
 
 *(See the visual plot in the repo: [benchmark_and_context_scaling.png](https://raw.githubusercontent.com/npanj/splash-plus/main/benchmark_and_context_scaling.png) showing the full 51-point scatter and rolling trend line).*
 
 **The big takeaway on context:**
-Decode speed **does not collapse**. Thanks to Splash's memory handling and the hybrid architecture, it stays between **21 – 33 tok/s** all the way out to 190k tokens. 
+Decode speed **does not collapse**. Thanks to Splash's memory handling and the hybrid architecture, it stays between **21 – 33 tok/s** across the entire range. 
 
 The actual bottleneck at 150k+ context is **cold prefill (TTFT)**. When the prefix cache hits, TTFT at 187k context is just **6.5 seconds**. But on a cold cache miss, prefilling 180k+ tokens on a 27B model on Apple Silicon takes ~4–5 minutes. If you are using agent harnesses (like Oh My Pi, Claude Code, or curl), make sure client SSE idle timeouts are set high enough so the client doesn't drop the connection during cold prefills.
 
