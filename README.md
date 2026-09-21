@@ -1,6 +1,6 @@
-# Qwen3.8-27B on Apple Silicon: Comprehensive Benchmarking & Quality Evaluation
+# Splash-Plus: Qwen3.8-27B on Apple Silicon (Benchmarking, Evaluation & Q8 Extensions)
 
-Empirical benchmark suite, precision analysis, and quality evaluation comparing **Splash (Q4, Q8, Mixed, HQ)** against **MTPLX**, **MLX**, and **llama.cpp** running **Qwen3.8-27B** on Apple Silicon with Multi-Token Prediction (MTP).
+Empirical benchmark suite, precision analysis, and quality evaluation comparing **Splash-Plus / Splash (Q4, Q8, Mixed, HQ)** against **MTPLX**, **MLX**, and **llama.cpp** running **Qwen3.8-27B** on Apple Silicon with Multi-Token Prediction (MTP).
 
 ---
 
